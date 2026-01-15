@@ -1,65 +1,75 @@
 <div>
-<section class="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute inset-0 overflow-hidden opacity-20">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+<section class="py-32 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden">
+    <!-- Animated decorative elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/10 rounded-full blur-3xl"></div>
     </div>
 
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+
     <div class="container mx-auto px-6 lg:px-8 relative z-10">
-        <div class="max-w-4xl mx-auto text-center space-y-8" wire:transition>
+        <div class="max-w-5xl mx-auto text-center space-y-12" wire:transition>
             <!-- Badge -->
-            <div>
-                <flux:badge size="lg" color="white" class="inline-flex items-center gap-2">
-                    <flux:icon.rocket-launch variant="micro" />
+            <div class="animate-fade-in">
+                <flux:badge size="lg" color="white" class="inline-flex items-center gap-2 shadow-xl shadow-black/10 px-6 py-2">
+                    <flux:icon.rocket-launch variant="micro" class="animate-pulse" />
                     Comece agora
                 </flux:badge>
             </div>
 
             <!-- Headline -->
-            <div class="space-y-4">
-                <flux:heading size="xl" class="text-5xl md:text-6xl font-bold text-white">
+            <div class="space-y-6">
+                <flux:heading size="xl" class="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight drop-shadow-2xl">
                     BrunaWay não é um app<br>para agradar crianças
                 </flux:heading>
 
-                <flux:text class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+                <flux:text class="text-2xl md:text-3xl text-white/95 max-w-3xl mx-auto font-light leading-relaxed">
                     É um sistema para formar adultos.
                 </flux:text>
             </div>
 
-            <!-- Benefits -->
-            <div class="grid md:grid-cols-3 gap-6 pt-8">
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20" wire:transition>
-                    <flux:icon.shield-check variant="solid" class="size-10 text-white mx-auto mb-3" />
-                    <flux:heading size="md" class="text-white mb-2">Seguro</flux:heading>
-                    <flux:text variant="subtle" class="text-white/80 text-sm">
+            <!-- Benefits with enhanced cards -->
+            <div class="grid md:grid-cols-3 gap-8 pt-12">
+                <div class="bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-2xl hover:bg-white/20 hover:scale-105 hover:border-white/40 transition-all duration-300" wire:transition>
+                    <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <flux:icon.shield-check variant="solid" class="size-8 text-white" />
+                    </div>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Seguro</flux:heading>
+                    <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
                         Ambiente familiar fechado, sem exposição pública
                     </flux:text>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20" wire:transition>
-                    <flux:icon.chart-bar variant="solid" class="size-10 text-white mx-auto mb-3" />
-                    <flux:heading size="md" class="text-white mb-2">Completo</flux:heading>
-                    <flux:text variant="subtle" class="text-white/80 text-sm">
+                <div class="bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-2xl hover:bg-white/20 hover:scale-105 hover:border-white/40 transition-all duration-300" wire:transition style="animation-delay: 0.1s;">
+                    <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <flux:icon.chart-bar variant="solid" class="size-8 text-white" />
+                    </div>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Completo</flux:heading>
+                    <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
                         Rotina, mesada, relatórios e acompanhamento
                     </flux:text>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20" wire:transition>
-                    <flux:icon.academic-cap variant="solid" class="size-10 text-white mx-auto mb-3" />
-                    <flux:heading size="md" class="text-white mb-2">Educativo</flux:heading>
-                    <flux:text variant="subtle" class="text-white/80 text-sm">
+                <div class="bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-2xl hover:bg-white/20 hover:scale-105 hover:border-white/40 transition-all duration-300" wire:transition style="animation-delay: 0.2s;">
+                    <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <flux:icon.academic-cap variant="solid" class="size-8 text-white" />
+                    </div>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Educativo</flux:heading>
+                    <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
                         Método comprovado de formação de caráter
                     </flux:text>
                 </div>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <!-- CTA Buttons with enhanced styling -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12">
                 <flux:button
                     href="{{ route('register') }}"
                     size="base"
-                    class="w-full sm:w-auto bg-white text-blue-600 hover:bg-zinc-100 font-semibold data-loading:opacity-50 data-loading:pointer-events-none"
+                    class="w-full sm:w-auto px-8 py-4 text-lg bg-white text-blue-600 hover:bg-zinc-100 font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 data-loading:opacity-50 data-loading:pointer-events-none"
                     icon="arrow-right"
                     icon:trailing
                 >
@@ -71,7 +81,7 @@
                         href="{{ url('/dashboard') }}"
                         variant="outline"
                         size="base"
-                        class="w-full sm:w-auto border-white text-white hover:bg-white/10"
+                        class="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/20 font-semibold backdrop-blur-sm hover:scale-105 transition-all duration-300"
                         icon="home"
                     >
                         Ir para o Dashboard
@@ -81,7 +91,7 @@
                         href="{{ route('login') }}"
                         variant="outline"
                         size="base"
-                        class="w-full sm:w-auto border-white text-white hover:bg-white/10"
+                        class="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/20 font-semibold backdrop-blur-sm hover:scale-105 transition-all duration-300"
                         icon="arrow-right-end-on-rectangle"
                     >
                         Já tenho conta
@@ -89,15 +99,15 @@
                 @endauth
             </div>
 
-            <!-- Trust indicators -->
-            <div class="pt-8 space-y-3">
-                <div class="flex items-center justify-center gap-2 text-white/80">
-                    <flux:icon.check-circle variant="solid" class="size-5" />
-                    <flux:text class="text-sm text-white/90">Sem cartão de crédito necessário</flux:text>
+            <!-- Enhanced trust indicators -->
+            <div class="pt-12 flex flex-wrap items-center justify-center gap-8">
+                <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                    <flux:icon.check-circle variant="solid" class="size-6 text-white" />
+                    <flux:text class="text-base text-white font-medium">Sem cartão de crédito necessário</flux:text>
                 </div>
-                <div class="flex items-center justify-center gap-2 text-white/80">
-                    <flux:icon.lock-closed variant="solid" class="size-5" />
-                    <flux:text class="text-sm text-white/90">Seus dados sempre protegidos</flux:text>
+                <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                    <flux:icon.lock-closed variant="solid" class="size-6 text-white" />
+                    <flux:text class="text-base text-white font-medium">Seus dados sempre protegidos</flux:text>
                 </div>
             </div>
         </div>
