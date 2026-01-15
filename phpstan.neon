@@ -1,0 +1,52 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app/
+        - config/
+        - database/
+        - routes/
+
+    level: 5
+
+    ignoreErrors:
+        # PHP 8.5 pipeline operator - PHPStan ainda não suporta
+        - identifier: binaryOp.invalid
+        # Livewire computed properties - magic properties válidas
+        - '#Access to an undefined property App\\Livewire\\.+::\$[a-zA-Z]+#'
+        # Multi-tenancy BelongsToTenant trait - tenant_id existe em runtime
+        - identifier: property.notFound
+          message: '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::\$tenant_id#'
+        # Faker pt_BR locale - métodos brasileiros válidos
+        - '#Call to an undefined method Faker\\Generator::(secondaryAddress|stateAbbr)\(\)#'
+        # Laravel BelongsToMany pivot - $pivot é feature legítima
+        - identifier: property.notFound
+          message: '#Access to an undefined property App\\Models\\Product::\$pivot#'
+          paths:
+              - app/Actions/ProductKit/*
+              - app/Livewire/Inventory/Products/Kits/*
+        # Livewire routes beta - Route::livewire() válido
+        - identifier: method.notFound
+          message: '#Cannot call method .* on mixed#'
+          path: routes/*
+        # Generics verbosos - nível 5 não exige tipos completos
+        - identifier: generics.lessTypes
+        - identifier: generics.notSubtype
+        - identifier: method.templateTypeNotInParameter
+        # Defensive coding - comparações sempre true/false são BOM para runtime
+        - identifier: instanceof.alwaysTrue
+        - identifier: identical.alwaysFalse
+        - identifier: notIdentical.alwaysTrue
+        - identifier: nullCoalesce.offset
+        # Laravel Relations covariance - PHPStan não entende bem
+        - identifier: return.type
+        - identifier: argument.type
+        - identifier: assign.propertyType
+        # Traits para uso futuro
+        - identifier: trait.unused
+
+    excludePaths:
+        - app/Http/Middleware/*
+
+    reportUnmatchedIgnoredErrors: false

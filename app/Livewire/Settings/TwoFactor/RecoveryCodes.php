@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Settings\TwoFactor;
 
 use Exception;
@@ -39,7 +41,7 @@ class RecoveryCodes extends Component
 
         if ($user->two_factor_recovery_codes && $user->hasEnabledTwoFactorAuthentication()) {
             try {
-                $this->recoveryCodes = json_decode(decrypt($user->two_factor_recovery_codes), true, 512, JSON_THROW_ON_ERROR);
+                $this->recoveryCodes = json_decode((string) decrypt($user->two_factor_recovery_codes), true, 512, JSON_THROW_ON_ERROR);
             } catch (Exception) {
                 $this->addError('recoveryCodes', 'Failed to load recovery codes');
 
