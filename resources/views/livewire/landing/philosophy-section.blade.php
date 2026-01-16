@@ -18,23 +18,25 @@
             </div>
 
             <!-- Tabs -->
-            <flux:tabs wire:model="activeTab" class="w-full">
-                <flux:tab name="values">
-                    <flux:icon.academic-cap variant="micro" />
-                    Valores
-                </flux:tab>
-                <flux:tab name="method">
-                    <flux:icon.clipboard-document-list variant="micro" />
-                    Método
-                </flux:tab>
-                <flux:tab name="results">
-                    <flux:icon.trophy variant="micro" />
-                    Resultados
-                </flux:tab>
-                <flux:tab name="who">
-                    <flux:icon.user-group variant="micro" />
-                    Para Quem
-                </flux:tab>
+            <flux:tab.group>
+                <flux:tabs wire:model="activeTab" class="w-full">
+                    <flux:tab name="values">
+                        <flux:icon.academic-cap variant="micro" />
+                        Valores
+                    </flux:tab>
+                    <flux:tab name="method">
+                        <flux:icon.clipboard-document-list variant="micro" />
+                        Método
+                    </flux:tab>
+                    <flux:tab name="results">
+                        <flux:icon.trophy variant="micro" />
+                        Resultados
+                    </flux:tab>
+                    <flux:tab name="who">
+                        <flux:icon.user-group variant="micro" />
+                        Para Quem
+                    </flux:tab>
+                </flux:tabs>
 
                 <!-- Values Panel -->
                 <flux:tab.panel name="values">
@@ -236,7 +238,7 @@
                         </flux:card>
                     </div>
                 </flux:tab.panel>
-            </flux:tabs>
+            </flux:tab.group>
         </div>
     </div>
 </section>
