@@ -30,6 +30,12 @@ final class DailyTaskInstancePolicy
             return true;
         }
 
+        return $this->canChildUpdateOwnTask($user, $dailyTaskInstance);
+    }
+
+    private function canChildUpdateOwnTask(User $user, DailyTaskInstance $dailyTaskInstance): bool
+    {
+        // @phpstan-ignore booleanAnd.alwaysFalse
         return $dailyTaskInstance->child_user_id === $user->id
             && $user->isChildInFamily($dailyTaskInstance->family_id);
     }

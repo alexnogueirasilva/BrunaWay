@@ -20,6 +20,7 @@ final class TaskSeeder extends Seeder
             return;
         }
 
+        /** @var \App\Models\User|null $child */
         $child = $family->users()
             ->wherePivot('role', Role::Child->value)
             ->first();
