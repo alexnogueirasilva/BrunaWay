@@ -16,18 +16,18 @@
             <div class="animate-fade-in">
                 <flux:badge size="lg" color="white" class="inline-flex items-center gap-2 shadow-xl shadow-black/10 px-6 py-2">
                     <flux:icon.rocket-launch variant="micro" class="animate-pulse" />
-                    Comece agora
+                    {{ __('landing.cta.badge') }}
                 </flux:badge>
             </div>
 
             <!-- Headline -->
             <div class="space-y-6">
                 <flux:heading size="xl" class="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight drop-shadow-2xl">
-                    BrunaWay não é um app<br>para agradar crianças
+                    {{ __('landing.cta.title') }}
                 </flux:heading>
 
                 <flux:text class="text-2xl md:text-3xl text-white/95 max-w-3xl mx-auto font-light leading-relaxed">
-                    É um sistema para formar adultos.
+                    {{ __('landing.cta.subtitle') }}
                 </flux:text>
             </div>
 
@@ -37,9 +37,9 @@
                     <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <flux:icon.shield-check variant="solid" class="size-8 text-white" />
                     </div>
-                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Seguro</flux:heading>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">{{ __('landing.cta.benefits.safe.title') }}</flux:heading>
                     <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
-                        Ambiente familiar fechado, sem exposição pública
+                        {{ __('landing.cta.benefits.safe.description') }}
                     </flux:text>
                 </div>
 
@@ -47,9 +47,9 @@
                     <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <flux:icon.chart-bar variant="solid" class="size-8 text-white" />
                     </div>
-                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Completo</flux:heading>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">{{ __('landing.cta.benefits.complete.title') }}</flux:heading>
                     <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
-                        Rotina, mesada, relatórios e acompanhamento
+                        {{ __('landing.cta.benefits.complete.description') }}
                     </flux:text>
                 </div>
 
@@ -57,9 +57,9 @@
                     <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <flux:icon.academic-cap variant="solid" class="size-8 text-white" />
                     </div>
-                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">Educativo</flux:heading>
+                    <flux:heading size="md" class="text-white mb-3 text-2xl font-bold">{{ __('landing.cta.benefits.educational.title') }}</flux:heading>
                     <flux:text variant="subtle" class="text-white/90 text-base leading-relaxed">
-                        Método comprovado de formação de caráter
+                        {{ __('landing.cta.benefits.educational.description') }}
                     </flux:text>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     icon="arrow-right"
                     icon:trailing
                 >
-                    Criar minha família gratuitamente
+                    {{ __('landing.cta.primary') }}
                 </flux:button>
 
                 @auth
@@ -84,7 +84,7 @@
                         class="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/20 font-semibold backdrop-blur-sm hover:scale-105 transition-all duration-300"
                         icon="home"
                     >
-                        Ir para o Dashboard
+                        {{ __('landing.cta.secondary_dashboard') }}
                     </flux:button>
                 @else
                     <flux:button
@@ -94,7 +94,7 @@
                         class="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/20 font-semibold backdrop-blur-sm hover:scale-105 transition-all duration-300"
                         icon="arrow-right-end-on-rectangle"
                     >
-                        Já tenho conta
+                        {{ __('landing.cta.secondary_login') }}
                     </flux:button>
                 @endauth
             </div>
@@ -103,11 +103,11 @@
             <div class="pt-12 flex flex-wrap items-center justify-center gap-8">
                 <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
                     <flux:icon.check-circle variant="solid" class="size-6 text-white" />
-                    <flux:text class="text-base text-white font-medium">Sem cartão de crédito necessário</flux:text>
+                    <flux:text class="text-base text-white font-medium">{{ __('landing.cta.trust_no_card') }}</flux:text>
                 </div>
                 <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
                     <flux:icon.lock-closed variant="solid" class="size-6 text-white" />
-                    <flux:text class="text-base text-white font-medium">Seus dados sempre protegidos</flux:text>
+                    <flux:text class="text-base text-white font-medium">{{ __('landing.cta.trust_protected') }}</flux:text>
                 </div>
             </div>
         </div>

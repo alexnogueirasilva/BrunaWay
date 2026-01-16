@@ -14,28 +14,23 @@
 
     <div class="relative z-10 container mx-auto px-6 lg:px-8 py-20">
         <div class="max-w-6xl mx-auto text-center space-y-12">
-            <!-- Badge with enhanced styling -->
             <div wire:transition class="animate-fade-in">
                 <flux:badge size="lg" color="zinc" class="inline-flex items-center gap-2 shadow-lg shadow-zinc-900/5 dark:shadow-zinc-100/5 px-6 py-2">
                     <flux:icon.shield-check variant="micro" class="animate-pulse" />
-                    Disciplina, Organização e Responsabilidade
+                    {{ __('landing.hero.badge') }}
                 </flux:badge>
             </div>
-
-            <!-- Main headline with enhanced typography -->
             <div class="space-y-6" wire:transition style="animation-delay: 0.1s;">
                 <flux:heading size="xl" class="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight leading-[0.95] bg-gradient-to-br from-zinc-900 via-zinc-700 to-blue-900 dark:from-zinc-100 dark:via-zinc-300 dark:to-blue-100 bg-clip-text text-transparent drop-shadow-2xl">
-                    Forme adultos<br>preparados
+                    {{ __('landing.hero.title') }}
                 </flux:heading>
 
                 <div class="max-w-3xl mx-auto space-y-4">
                     <flux:subheading size="lg" class="text-2xl md:text-3xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-light">
-                        Sistema de rotina familiar que ensina compromisso, organização e consequência desde cedo
+                        {{ __('landing.hero.subtitle') }}
                     </flux:subheading>
                 </div>
             </div>
-
-            <!-- CTA Buttons with enhanced styling -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8" wire:transition style="animation-delay: 0.2s;">
                 <flux:button
                     href="{{ route('register') }}"
@@ -45,7 +40,7 @@
                     icon:trailing
                     class="w-full sm:w-auto px-8 py-4 text-lg font-semibold shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300 data-loading:opacity-50 data-loading:pointer-events-none"
                 >
-                    Criar minha família
+                    {{ __('landing.hero.cta_primary') }}
                 </flux:button>
 
                 <flux:button
@@ -55,11 +50,9 @@
                     icon="information-circle"
                     class="w-full sm:w-auto px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 backdrop-blur-sm"
                 >
-                    Saiba mais
+                    {{ __('landing.hero.cta_secondary') }}
                 </flux:button>
             </div>
-
-            <!-- Enhanced social proof -->
             <div class="pt-12 flex flex-col items-center gap-6" wire:transition style="animation-delay: 0.3s;">
                 <div class="flex items-center gap-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md rounded-full px-6 py-3 shadow-lg border border-zinc-200/50 dark:border-zinc-800/50">
                     <div class="flex -space-x-3">
@@ -73,33 +66,28 @@
                     </div>
                     <div class="h-8 w-px bg-zinc-300 dark:bg-zinc-700"></div>
                     <flux:text variant="subtle" size="sm" class="text-base">
-                        <span class="font-bold text-zinc-900 dark:text-zinc-100">+100 famílias</span><br class="sm:hidden">
-                        <span class="text-zinc-600 dark:text-zinc-400"> organizando suas rotinas</span>
+                        {{ __('landing.hero.social_proof') }}
                     </flux:text>
                 </div>
-
-                <!-- Trust indicators -->
                 <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-zinc-500 dark:text-zinc-500">
                     <div class="flex items-center gap-2">
                         <flux:icon.check-badge variant="solid" class="size-5 text-green-600 dark:text-green-500" />
-                        <span>Sem cartão de crédito</span>
+                        <span>{{ __('landing.hero.trust_no_card') }}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <flux:icon.shield-check variant="solid" class="size-5 text-blue-600 dark:text-blue-500" />
-                        <span>100% Seguro</span>
+                        <span>{{ __('landing.hero.trust_secure') }}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <flux:icon.sparkles variant="solid" class="size-5 text-purple-600 dark:text-purple-500" />
-                        <span>Grátis para sempre</span>
+                        <span>{{ __('landing.hero.trust_free') }}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Enhanced scroll indicator -->
     <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <flux:text variant="subtle" size="sm" class="text-xs uppercase tracking-widest">Descubra mais</flux:text>
+        <flux:text variant="subtle" size="sm" class="text-xs uppercase tracking-widest">{{ __('landing.hero.discover_more') }}</flux:text>
         <flux:icon.chevron-down variant="outline" class="size-6 text-zinc-400" />
     </div>
 </section>

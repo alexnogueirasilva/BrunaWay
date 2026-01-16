@@ -16,8 +16,6 @@
                     Organize, acompanhe e forme. Três passos para transformar rotina em disciplina.
                 </flux:text>
             </div>
-
-            <!-- Features grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Feature 1 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
@@ -32,8 +30,6 @@
                         Crie rotinas, horários, prioridades e responsabilidades. Você define como a casa funciona.
                     </flux:text>
                 </flux:card>
-
-                <!-- Feature 2 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
@@ -46,8 +42,6 @@
                         Marcam o que foi feito, aprendem a se organizar e entendem o próprio desempenho.
                     </flux:text>
                 </flux:card>
-
-                <!-- Feature 3 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">

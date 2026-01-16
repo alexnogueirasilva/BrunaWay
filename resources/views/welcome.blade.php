@@ -67,10 +67,14 @@
                             @endif
                         @endauth
                     @endif
+
+                    <!-- Language Selector -->
+                    <x-language-switcher />
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
+                <div class="md:hidden flex items-center gap-2">
+                    <x-language-switcher />
                     <flux:button variant="ghost" size="sm" icon="bars-3" x-on:click="$dispatch('open-modal', 'mobile-menu')" />
                 </div>
             </div>

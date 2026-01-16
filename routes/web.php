@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View => view('welcome'))->name('home');
+Route::get('/', fn (): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View => view('welcome'))->name('home');
+
+Route::get('/locale/switch/{locale}', [App\Http\Controllers\LocaleController::class, 'switch'])->name('locale.switch');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
