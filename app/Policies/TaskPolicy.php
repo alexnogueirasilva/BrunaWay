@@ -9,7 +9,7 @@ use App\Models\User;
 
 final class TaskPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(): bool
     {
         return true;
     }
@@ -19,7 +19,7 @@ final class TaskPolicy
         return $user->belongsToFamily($task->family_id);
     }
 
-    public function create(User $user): bool
+    public function create(): bool
     {
         return true;
     }

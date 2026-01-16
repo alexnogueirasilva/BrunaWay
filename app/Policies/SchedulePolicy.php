@@ -9,7 +9,7 @@ use App\Models\User;
 
 final class SchedulePolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(): bool
     {
         return true;
     }
@@ -19,7 +19,7 @@ final class SchedulePolicy
         return $user->belongsToFamily($schedule->family_id);
     }
 
-    public function create(User $user): bool
+    public function create(): bool
     {
         return true;
     }
