@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\LifeStage;
-use App\Role;
+use App\Enums\LifeStage;
+use App\Enums\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +13,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('family_user', static function (Blueprint $table): void {
-            $table->uuid('id')->primary();
             $table->foreignUuid('family_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('role')->default(Role::Child->value);
@@ -22,9 +21,7 @@ return new class extends Migration
             $table->boolean('life_stage_locked')->default(false);
             $table->timestamps();
 
-            $table->unique(['family_id', 'user_id']);
-            $table->index('family_id');
-            $table->index('user_id');
+            $table->primary(['family_id', 'user_id']);
             $table->index('role');
             $table->index('life_stage');
         });

@@ -1,10 +1,52 @@
-# BrunaWay — Backlog “Nível Ouro” (Evolução por Idade + Emancipação)
-**Stack:** Laravel 12 + Livewire 4 + Flux UI + Tailwind + Alpine (mínimo)  
-**DB:** PostgreSQL (recomendado) ou MySQL  
-**Infra opcional:** Redis (queues/cache), S3 (anexos), Horizon (se usar filas)  
-**Formato:** Épicos → User Stories → Tasks técnicas → Critérios de aceite  
-**Nome do produto:** BrunaWay  
+# BrunaWay — Backlog "Nível Ouro" (Evolução por Idade + Emancipação)
+**Stack:** Laravel 12 + Livewire 4 + Flux UI + Tailwind + Alpine (mínimo)
+**DB:** PostgreSQL (recomendado) ou MySQL
+**Infra opcional:** Redis (queues/cache), S3 (anexos), Horizon (se usar filas)
+**Formato:** Épicos → User Stories → Tasks técnicas → Critérios de aceite
+**Nome do produto:** BrunaWay
 **Princípio:** controle diminui com o tempo; autonomia aumenta com responsabilidade.
+
+---
+
+## 📊 Progresso Atual (Última atualização: 2026-01-16 02:20)
+
+### ✅ Concluído
+- **PHP 8.5.1** com features modernas (pipe operator, property hooks)
+- **UUID** implementado em toda estrutura (users, families, tasks, schedules, daily_task_instances)
+- **Trait HasFullTextSearch** com GIN index PostgreSQL + fallback SQLite/MySQL
+- **Enums** organizados em `App\Enums`: Role, LifeStage, TaskType, Priority, TaskInstanceStatus (com labels, cores, métodos)
+- **Migrations** completas:
+  - families (UUID, soft deletes)
+  - family_user (pivot com role, birthdate, life_stage, life_stage_locked)
+  - tasks (com GIN fulltext index, type, priority, weight)
+  - schedules (JSON days_of_week, time windows)
+  - daily_task_instances (status tracking, completion timestamps)
+- **Models** (final class, sem $fillable, usando Model::unguard()):
+  - Family, Task, Schedule, DailyTaskInstance com relationships
+  - User com helper methods (belongsToFamily, isParentInFamily, isChildInFamily)
+- **DTOs** (final readonly class): TaskDTO, FamilyDTO com métodos toArray()
+- **Actions** (final class): CreateTaskAction, UpdateTaskAction, DeleteTaskAction, CreateFamilyAction
+- **Policies** multi-tenant:
+  - FamilyPolicy, TaskPolicy, SchedulePolicy, DailyTaskInstancePolicy
+  - Isolamento por family_id, parents têm full access, children access restrito
+- **Seeders** com dados demo:
+  - FamilySeeder (Família Silva, Maria - parent, João - child)
+  - TaskSeeder (6 tarefas: escovar dentes, arrumar cama, dever de casa, organizar brinquedos, ler livro, praticar instrumento)
+  - ScheduleSeeder (horários e dias da semana para cada tarefa)
+- **Sidebar collapsible** implementado (desktop + mobile)
+- **Internacionalização (i18n)** completa pt_BR/en
+- **Landing page** profissional com Flux UI
+- **Theme toggle** (dark/light mode)
+
+### 🚧 Em Andamento
+- Nenhum item em desenvolvimento no momento
+
+### 📋 Próximos Passos
+- Livewire components para CRUD de Tasks
+- Action: GenerateDailyInstancesAction
+- Command: routine:generate-daily
+- Dashboard para Parents e Children
+- Tela "Minha Família" para gerenciar membros
 
 ---
 
@@ -53,12 +95,12 @@ O estágio altera permissões, UX e regras financeiras.
 **Objetivo:** esqueleto navegável com Flux UI, multi-family, e contexto por papel.
 
 ### EPIC A — Fundação & Design System (Flux UI)
-**User Story A1:** Como usuário, quero autenticar e ver a interface conforme meu papel.  
+**User Story A1:** Como usuário, quero autenticar e ver a interface conforme meu papel.
 **Tasks**
-- [ ] Setup Laravel 12 + Livewire 4 + Flux UI + Tailwind
-- [ ] Layout base (AppShell): Topbar, Sidebar, Content
-- [ ] Componentes Flux UI padrões: buttons, badges, toasts, modals, tables, tabs
-- [ ] Autenticação (Breeze/Jetstream) com Livewire (sem Teams)
+- [x] Setup Laravel 12 + Livewire 4 + Flux UI + Tailwind
+- [x] Layout base (AppShell): Topbar, Sidebar (collapsible), Content
+- [x] Componentes Flux UI padrões: buttons, badges, toasts, modals, tables, tabs
+- [x] Autenticação (Fortify) com Livewire + 2FA
 - [ ] Middleware de papel + contexto de família
 - [ ] Seed: 1 Family, 1 Parent, 1 Child, tarefas demo
   **Critérios de aceite**
@@ -66,12 +108,13 @@ O estágio altera permissões, UX e regras financeiras.
 - Flux UI aplicado consistentemente em forms, tables e modals.
 
 ### EPIC B — Multi-tenant leve por Family
-**User Story B1:** Como pai, quero associar contas à minha família.  
+**User Story B1:** Como pai, quero associar contas à minha família.
 **Tasks**
-- [ ] Migrations: families, family_user
-- [ ] Policies: Parent só acessa recursos da sua Family
-- [ ] Scopes/Eloquent: sempre filtrar por family_id
-- [ ] Tela “Minha Família” (Parent): listar membros, vincular child existente
+- [x] Migrations: families (UUID), family_user (com role, birthdate, life_stage)
+- [x] Policies: Parent só acessa recursos da sua Family (FamilyPolicy, TaskPolicy, SchedulePolicy, DailyTaskInstancePolicy)
+- [x] Scopes/Eloquent: filtros por family_id implementados (forFamily, forChild, etc)
+- [x] Seeders com dados demo (1 Family, 1 Parent, 1 Child, 6 tarefas)
+- [ ] Tela "Minha Família" (Parent): listar membros, vincular child existente
   **Critérios de aceite**
 - Um Parent não enxerga dados de outra Family.
 - Child só enxerga seus dados dentro da Family.
@@ -82,10 +125,11 @@ O estágio altera permissões, UX e regras financeiras.
 **Objetivo:** checklist diário e editor de rotina.
 
 ### EPIC C — Tasks (CRUD) + Prioridades
-**User Story C1:** Como pai, quero cadastrar tarefas com prioridade, peso e tipo.  
+**User Story C1:** Como pai, quero cadastrar tarefas com prioridade, peso e tipo.
 **Tasks**
-- [ ] Migration: tasks
-- [ ] Enum: TaskType (fixed/flexible/optional), Priority (high/medium/low)
+- [x] Migration: tasks (UUID, com GIN fulltext index para PostgreSQL)
+- [x] Enum: TaskType (fixed/flexible/optional), Priority (high/medium/low)
+- [x] Trait: HasFullTextSearch (PostgreSQL GIN + fallback SQLite/MySQL)
 - [ ] Livewire: ParentTasksIndex (table Flux UI), ParentTaskForm (modal)
 - [ ] Validações: título, tipo, prioridade, peso, duração padrão opcional
   **Critérios de aceite**
@@ -93,32 +137,37 @@ O estágio altera permissões, UX e regras financeiras.
 - Peso e tipo aparecem na tabela com badges.
 
 ### EPIC D — Schedules (regras semanais) + Janelas
-**User Story D1:** Como pai, quero definir quando a tarefa ocorre e sua janela permitida.  
+**User Story D1:** Como pai, quero definir quando a tarefa ocorre e sua janela permitida.
 **Tasks**
-- [ ] Migration: schedules (days_of_week JSON, start_time, window_start/end etc.)
+- [x] Migration: schedules (days_of_week JSON, start_time, window_start/end etc.)
+- [x] Model: Schedule com relationships, casts, scopes (forDay, active, forFamily)
+- [x] Seeders: ScheduleSeeder com horários para as 6 tarefas demo
 - [ ] Livewire: ParentRoutineEditor
     - Selecionar tarefa
     - Definir dias da semana
     - Horário sugerido (start_time) e janela (window)
 - [ ] Validações: janela coerente, dias válidos
   **Critérios de aceite**
-- Pai define: “Estudo seg-sex entre 15:00–19:00”
+- Pai define: "Estudo seg-sex entre 15:00–19:00"
 - Rotina semanal aparece consistente e clara.
 
 ### EPIC E — DailyTaskInstances (gerar e executar)
-**User Story E1:** Como criança, quero ver o que tenho hoje e marcar como feito.  
+**User Story E1:** Como criança, quero ver o que tenho hoje e marcar como feito.
 **Tasks**
-- [ ] Migration: daily_task_instances
+- [x] Migration: daily_task_instances (com status tracking, completion timestamps)
+- [x] Model: DailyTaskInstance com relationships, scopes (forFamily, forChild, forDate, pending, done)
+- [x] Enum: TaskInstanceStatus (Pending, Done, Skipped, Cancelled) com countsForPerformance()
+- [x] Model methods: markAsDone(), markAsSkipped(), cancel()
 - [ ] Action: GenerateDailyInstancesAction (por dia e por child)
 - [ ] Command: routine:generate-daily (scheduler)
 - [ ] Livewire: ChildToday
     - Lista com checkbox
     - Progresso (x/y)
-    - “Concluir” com timestamp
+    - "Concluir" com timestamp
 - [ ] Regras: cancelled não conta; skipped conta como não feito
   **Critérios de aceite**
 - Gerar o dia baseado em schedules.
-- Marcar “done” reflete em relatórios simples.
+- Marcar "done" reflete em relatórios simples.
 
 ---
 

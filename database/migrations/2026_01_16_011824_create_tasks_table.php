@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Priority;
-use App\TaskType;
+use App\Enums\Priority;
+use App\Enums\TaskType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
