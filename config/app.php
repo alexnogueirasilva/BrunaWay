@@ -88,6 +88,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Full-Text Search Language
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the language used for full-text search in PostgreSQL.
+    | Supported values: 'portuguese', 'english', 'spanish', 'french', etc.
+    | When using SQLite or MySQL, the application falls back to LIKE queries.
+    |
+    */
+
+    'fulltext_language' => env('APP_FULLTEXT_LANGUAGE', 'portuguese'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
