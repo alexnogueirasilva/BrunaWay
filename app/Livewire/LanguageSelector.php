@@ -40,7 +40,7 @@ class LanguageSelector extends Component
         $this->dispatch('reload-page');
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         return view('livewire.language-selector');
     }

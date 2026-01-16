@@ -10,7 +10,7 @@ class PhilosophySection extends Component
 {
     public string $activeTab = 'values';
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         return view('livewire.landing.philosophy-section');
     }
