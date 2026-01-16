@@ -1,18 +1,15 @@
 <div>
 <section class="py-32 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden">
-    <!-- Animated decorative elements -->
     <div class="absolute inset-0 overflow-hidden">
         <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-white/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/10 rounded-full blur-3xl"></div>
     </div>
 
-    <!-- Grid pattern overlay -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
     <div class="container mx-auto px-6 lg:px-8 relative z-10">
         <div class="max-w-5xl mx-auto text-center space-y-12" wire:transition>
-            <!-- Badge -->
             <div class="animate-fade-in">
                 <flux:badge size="lg" color="white" class="inline-flex items-center gap-2 shadow-xl shadow-black/10 px-6 py-2">
                     <flux:icon.rocket-launch variant="micro" class="animate-pulse" />
@@ -20,7 +17,6 @@
                 </flux:badge>
             </div>
 
-            <!-- Headline -->
             <div class="space-y-6">
                 <flux:heading size="xl" class="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight drop-shadow-2xl">
                     {{ __('landing.cta.title') }}
@@ -31,7 +27,6 @@
                 </flux:text>
             </div>
 
-            <!-- Benefits with enhanced cards -->
             <div class="grid md:grid-cols-3 gap-8 pt-12">
                 <div class="bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/30 shadow-2xl hover:bg-white/20 hover:scale-105 hover:border-white/40 transition-all duration-300" wire:transition>
                     <div class="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -64,7 +59,6 @@
                 </div>
             </div>
 
-            <!-- CTA Buttons with enhanced styling -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12">
                 <flux:button
                     href="{{ route('register') }}"
@@ -99,7 +93,6 @@
                 @endauth
             </div>
 
-            <!-- Enhanced trust indicators -->
             <div class="pt-12 flex flex-wrap items-center justify-center gap-8">
                 <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
                     <flux:icon.check-circle variant="solid" class="size-6 text-white" />
@@ -114,12 +107,10 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="bg-zinc-900 text-zinc-400 py-12">
     <div class="container mx-auto px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8">
-                <!-- Brand -->
                 <div class="space-y-4">
                     <flux:heading size="lg" class="text-white">BrunaWay</flux:heading>
                     <flux:text variant="subtle" class="text-sm">
@@ -127,7 +118,6 @@
                     </flux:text>
                 </div>
 
-                <!-- Product -->
                 <div class="space-y-3">
                     <flux:heading size="md" class="text-white">Produto</flux:heading>
                     <div class="space-y-2">
@@ -136,7 +126,6 @@
                     </div>
                 </div>
 
-                <!-- Company -->
                 <div class="space-y-3">
                     <flux:heading size="md" class="text-white">Empresa</flux:heading>
                     <div class="space-y-2">
@@ -145,7 +134,6 @@
                     </div>
                 </div>
 
-                <!-- Legal -->
                 <div class="space-y-3">
                     <flux:heading size="md" class="text-white">Legal</flux:heading>
                     <div class="space-y-2">
@@ -155,7 +143,6 @@
                 </div>
             </div>
 
-            <!-- Copyright -->
             <div class="mt-12 pt-8 border-t border-zinc-800 text-center">
                 <flux:text variant="subtle" class="text-sm">
                     © {{ date('Y') }} BrunaWay. Todos os direitos reservados.

@@ -68,12 +68,27 @@
                         @endauth
                     @endif
 
-                    <!-- Language Selector -->
+                    <flux:button
+                        x-data
+                        x-on:click="$flux.dark = ! $flux.dark"
+                        icon="moon"
+                        variant="ghost"
+                        size="sm"
+                        aria-label="Toggle dark mode"
+                    />
+
                     <x-language-switcher />
                 </div>
 
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center gap-2">
+                    <flux:button
+                        x-data
+                        x-on:click="$flux.dark = ! $flux.dark"
+                        icon="moon"
+                        variant="ghost"
+                        size="sm"
+                        aria-label="Toggle dark mode"
+                    />
                     <x-language-switcher />
                     <flux:button variant="ghost" size="sm" icon="bars-3" x-on:click="$dispatch('open-modal', 'mobile-menu')" />
                 </div>

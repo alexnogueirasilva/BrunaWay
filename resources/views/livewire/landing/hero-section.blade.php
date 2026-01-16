@@ -1,15 +1,12 @@
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden" wire:transition>
-    <!-- Background with animated gradient -->
     <div class="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-blue-50/30 dark:from-zinc-950 dark:via-zinc-900 dark:to-blue-950/30"></div>
 
-    <!-- Decorative animated elements -->
     <div class="absolute inset-0 overflow-hidden">
         <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 dark:from-blue-400/10 dark:to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-gradient-to-tr from-purple-500/20 to-indigo-500/20 dark:from-purple-400/10 dark:to-indigo-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 dark:from-blue-400/5 dark:to-purple-400/5 rounded-full blur-3xl"></div>
     </div>
 
-    <!-- Grid pattern overlay -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
     <div class="relative z-10 container mx-auto px-6 lg:px-8 py-20">

@@ -1,7 +1,6 @@
 <section id="features" class="py-24 bg-white dark:bg-zinc-900 relative overflow-hidden">
     <div class="container mx-auto px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <!-- Section header -->
             <div class="text-center max-w-3xl mx-auto mb-16" wire:transition>
                 <flux:badge size="md" color="blue" class="mb-4">
                     <flux:icon.sparkles variant="micro" />
@@ -17,7 +16,6 @@
                 </flux:text>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
@@ -55,7 +53,6 @@
                     </flux:text>
                 </flux:card>
 
-                <!-- Feature 4 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
@@ -69,7 +66,6 @@
                     </flux:text>
                 </flux:card>
 
-                <!-- Feature 5 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-rose-100 dark:bg-rose-900/30 rounded-lg">
@@ -83,7 +79,6 @@
                     </flux:text>
                 </flux:card>
 
-                <!-- Feature 6 -->
                 <flux:card wire:transition wire:intersect.once class="hover:shadow-lg transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">

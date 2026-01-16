@@ -1,7 +1,6 @@
 <section class="py-24 bg-zinc-50 dark:bg-zinc-950 relative overflow-hidden">
     <div class="container mx-auto px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
-            <!-- Section header -->
             <div class="text-center max-w-3xl mx-auto mb-16" wire:transition>
                 <flux:badge size="md" color="purple" class="mb-4">
                     <flux:icon.light-bulb variant="micro" />
@@ -17,7 +16,6 @@
                 </flux:text>
             </div>
 
-            <!-- Tabs -->
             <flux:tab.group>
                 <flux:tabs wire:model="activeTab" class="w-full">
                     <flux:tab name="values">
@@ -38,7 +36,6 @@
                     </flux:tab>
                 </flux:tabs>
 
-                <!-- Values Panel -->
                 <flux:tab.panel name="values">
                     <div class="grid md:grid-cols-2 gap-8 py-8">
                         <flux:card wire:transition class="space-y-4">
@@ -91,7 +88,6 @@
                     </div>
                 </flux:tab.panel>
 
-                <!-- Method Panel -->
                 <flux:tab.panel name="method">
                     <div class="py-8 space-y-6">
                         <flux:callout variant="default" icon="information-circle">
@@ -141,7 +137,6 @@
                     </div>
                 </flux:tab.panel>
 
-                <!-- Results Panel -->
                 <flux:tab.panel name="results">
                     <div class="py-8 grid md:grid-cols-2 gap-6">
                         <flux:card wire:transition>
@@ -196,7 +191,6 @@
                     </div>
                 </flux:tab.panel>
 
-                <!-- Who Panel -->
                 <flux:tab.panel name="who">
                     <div class="py-8">
                         <flux:card wire:transition>
